@@ -1,11 +1,11 @@
 import http from 'http';
 import app from './app';
- 
-const port = process.env.PORT || 3000;
+import { PORT } from './config';
+
 const server = http.createServer(app);
 
-server.listen(port, () => 
-  console.log(`Server listening on port ${port}`)
+server.listen(PORT, () =>
+  console.log(`Server listening on port ${PORT}`)
 );
 
 export default server;
