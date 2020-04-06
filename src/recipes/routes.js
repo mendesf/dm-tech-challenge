@@ -1,8 +1,9 @@
 import { Router } from 'express';
+import { ingredientsValidators } from './middlewares';
 import controller from './controller';
 
 const router = Router();
 
-router.get('/', controller.getRecipes);
+router.get('/', ingredientsValidators(), controller.getRecipes);
 
 export default router;
