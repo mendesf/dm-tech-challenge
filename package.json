@@ -1,0 +1,24 @@
+{
+  "name": "delivery-much",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r esm src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mendesf/delivery-much.git"
+  },
+  "author": "Felipe Gustavo de Meneses Mendes <mendesf.dev@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mendesf/delivery-much/issues"
+  },
+  "homepage": "https://github.com/mendesf/delivery-much#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1"
+  }
+}
