@@ -6,7 +6,7 @@ const ingredientsSanitizer = query('i')
 export const ingredientsValidators = () => {
   const min = 1;
   const max = 3;
-  const message = `You must provide at least ${min} and a maximum of ${max} ingredients`;
+  const message = `Você deve fornercer ao menos ${min} e no máximo ${max} ingredientes`;
 
   return [
     ingredientsSanitizer,
