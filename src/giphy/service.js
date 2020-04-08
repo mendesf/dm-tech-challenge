@@ -3,9 +3,8 @@ import querystring from 'querystring';
 import { GIPHY_API_URL, GIPHY_API_KEY } from '../config';
 import { ExternalDependencyError } from '../errors';
 
-function getRandomIndex(count) {
-  return Math.floor(Math.random() * count);
-}
+const getRandomIndex = (count) =>
+  Math.floor(Math.random() * count);
 
 const search = async (term) => {
   const query = querystring.stringify({
@@ -13,11 +12,10 @@ const search = async (term) => {
     q: term,
     rating: 'G'
   });
-  const url = `${GIPHY_API_URL}/searc?${query}`;
+  const url = `${GIPHY_API_URL}/search?${query}`;
 
   try {
-    const res = await axios.get(url);
-    const { data, pagination } = res.data;
+    const { data: { data, pagination } } = await axios.get(url);
 
     if (pagination.count === 0) {
       return '';
