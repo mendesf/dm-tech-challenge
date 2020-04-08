@@ -1,7 +1,7 @@
 const { query } = require('express-validator');
 
 const ingredientsSanitizer = query('i')
-  .customSanitizer((value) => !value ? [] : value.split(','));
+  .customSanitizer(value => !value ? [] : value.split(','));
 
 export const ingredientsValidators = () => {
   const min = 1;
