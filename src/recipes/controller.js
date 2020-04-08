@@ -1,6 +1,6 @@
 import service from './service';
 import { validationResult } from 'express-validator';
-import { ExternalDependenciesError } from '../utils/errors';
+import { ExternalDependencyError } from '../errors';
 
 const getRecipes = async (req, res) => {
   try {
@@ -11,7 +11,7 @@ const getRecipes = async (req, res) => {
 
     res.json(recipes);
   } catch (err) {
-    if (err instanceof ExternalDependenciesError) {
+    if (err instanceof ExternalDependencyError) {
       res.status(502).json({ errors: [err] });
       return;
     }

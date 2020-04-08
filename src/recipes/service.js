@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { RECIPE_PUPPY_API_URL } from '../config';
 import giphyService from '../giphy/service';
-import { recipePuppyErrorFactory } from '../utils/errors';
+import { ExternalDependencyError } from '../errors';
 
 function transform(recipe) {
   const { href } = recipe;
@@ -32,8 +32,8 @@ async function search(keywords) {
 
     return recipes;
   } catch (err) {
-    console.error(err);
-    throw recipePuppyErrorFactory();
+    console.error(err.response);
+    throw new ExternalDependencyError('Não encontramos nosso livro de receitas', 'GIPHY');
   }
 }
 

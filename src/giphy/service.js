@@ -1,7 +1,7 @@
 import axios from 'axios';
 import querystring from 'querystring';
 import { GIPHY_API_URL, GIPHY_API_KEY } from '../config';
-import { giphyErrorFactory } from '../utils/errors';
+import { ExternalDependencyError } from '../errors';
 
 function getRandomIndex(count) {
   return Math.floor(Math.random() * count);
@@ -28,8 +28,8 @@ const search = async (term) => {
 
     return gif.embed_url;
   } catch (err) {
-    console.error(err);
-    throw giphyErrorFactory();
+    console.error(err.response);
+    throw new ExternalDependencyError('Nosso criador de GIFs está indisposto no momento', 'Recipe Puppy');
   }
 }
 
