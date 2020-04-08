@@ -1,6 +1,7 @@
 {
   "name": "delivery-much",
   "version": "1.0.0",
+  "description": "Delivery Much Tech Challenge",
   "main": "index.js",
   "scripts": {
     "test": "mocha -r esm './src/**/*test.js' --timeout 0 --exit",
