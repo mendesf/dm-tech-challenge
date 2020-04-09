@@ -33,7 +33,7 @@ const search = async (keywords) => {
     return recipes;
   } catch (err) {
     console.error(err.response);
-    throw new ExternalDependencyError('Não encontramos nosso livro de receitas', 'GIPHY');
+    throw new ExternalDependencyError('Não encontramos nosso livro de receitas', 'Recipe Puppy');
   }
 };
 

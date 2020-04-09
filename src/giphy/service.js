@@ -27,7 +27,7 @@ const search = async (term) => {
     return gif.embed_url;
   } catch (err) {
     console.error(err.response);
-    throw new ExternalDependencyError('Nosso criador de GIFs está indisposto no momento', 'Recipe Puppy');
+    throw new ExternalDependencyError('Nosso criador de GIFs está indisposto no momento', 'GIPHY');
   }
 }
 
