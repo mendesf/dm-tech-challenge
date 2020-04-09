@@ -11,13 +11,13 @@ const transform = (recipe) => {
 
   ingredients = ingredients
     .split(',')
-    .map(ingredient => ingredient.trim())
+    .map((ingredient) => ingredient.trim())
     .sort();
 
   return {
     title,
     ingredients,
-    link: href
+    link: href,
   };
 };
 
@@ -33,13 +33,15 @@ const search = async (keywords) => {
     return recipes;
   } catch (err) {
     console.error(err.response);
-    throw new ExternalDependencyError('Não encontramos nosso livro de receitas', 'Recipe Puppy');
+    const message = 'Não encontramos nosso livro de receitas';
+    const dependency = 'Recipe Puppy';
+    throw new ExternalDependencyError(message, dependency);
   }
 };
 
 const getRecipes = async (keywords) => {
   const recipes = await search(keywords);
-  const promises = recipes.map(recipe => giphyService.search(recipe.title));
+  const promises = recipes.map((recipe) => giphyService.search(recipe.title));
   const gifs = await Promise.all(promises);
 
   recipes.forEach((recipe, i) => {
@@ -48,7 +50,7 @@ const getRecipes = async (keywords) => {
 
   return {
     keywords,
-    recipes
+    recipes,
   };
 };
 

@@ -4,8 +4,6 @@ import { PORT } from './config';
 
 const server = http.createServer(app);
 
-server.listen(PORT, () =>
-  console.log(`Server listening on port ${PORT}`)
-);
+server.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 
 export default server;

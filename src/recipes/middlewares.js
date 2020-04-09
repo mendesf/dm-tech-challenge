@@ -1,7 +1,8 @@
 const { query } = require('express-validator');
 
-const ingredientsSanitizer = query('i')
-  .customSanitizer(value => !value ? [] : value.split(','));
+const ingredientsSanitizerFn = (value) => (!value ? [] : value.split(','));
+
+const ingredientsSanitizer = query('i').customSanitizer(ingredientsSanitizerFn);
 
 export const ingredientsValidators = () => {
   const min = 1;
@@ -12,7 +13,7 @@ export const ingredientsValidators = () => {
     ingredientsSanitizer,
     query('i', message).isArray({
       min: 1,
-      max: 3
-    })
+      max: 3,
+    }),
   ];
 };
